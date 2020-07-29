@@ -6,10 +6,10 @@ path = r"G:\coding\salary_proj/chromedriver"
 
 ## Denver, CO --> 1148170
 
-df = gs.get_jobs('data scientist', 15, False, path)
+df = gs.get_jobs('data scientist', 1000, False, path, 6)
 
 print(df.iloc[0])
 
-data_path = r"G:\coding\salary_proj"
+data_path = r"G:\coding\salary_proj\data.csv"
 
-df.to_csv(path = data_path, index = False)
+df.to_csv(data_path, index = False)
