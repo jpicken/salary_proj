@@ -1,7 +1,7 @@
 
 import pandas as pd 
 
-df = pd.read_csv('data_7-29.csv')
+df = pd.read_csv('data_7-30.csv')
 
 """
 Columns: ['Job Title', 'Salary Estimate', 'Job Description', 'Rating',
@@ -16,7 +16,8 @@ Columns: ['Job Title', 'Salary Estimate', 'Job Description', 'Rating',
 df = df [ df['Salary Estimate'] != '-1']
 
 df['employer provided'] = df['Salary Estimate'].apply(lambda x: 1 if 'employer provided' in x.lower() else 0)
-trimmed = df['Salary Estimate'].apply(lambda x: x.replace('Employer Provided Salary:',''))
+df['hourly'] = df['Salary Estimate'].apply(lambda x: 1 if 'per hour' in x.lower() else 0)
+trimmed = df['Salary Estimate'].apply(lambda x: x.replace('Employer Provided Salary:','').replace(' Per Hour',''))
 
 # Salary Estimate needs cleaning
 # format: "$##K - $##K"
@@ -84,8 +85,8 @@ df.aws_yn.value_counts()
 df.spark_yn.value_counts()
 df.nlp_yn.value_counts()
 
-
-df.to_csv(r"G:\coding\salary_proj\cleaned_data.csv", index = False)
+# remember to update output to match your input
+df.to_csv(r"G:\coding\salary_proj\cleaned_data_7-30.csv", index = False)
 
 # Industry: need to separate into individual strings?
 
