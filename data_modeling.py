@@ -114,9 +114,8 @@ now = datetime.now()
 print(now)
 
 
-print("Grid Search Random Forest Error = " + str(gs.best_score_)) # output: -11.956382809520369
-print("Grid Search Random Forest Parameters = " + str(gs.best_estimator_)) # output: RandomForestRegressor(n_estimators=119, mse, auto)
-
+print("Grid Search Random Forest Error = " + str(gs.best_score_)) # output: -11.956382809520369 with 7-30_data.csv
+print("Grid Search Random Forest Parameters = " + str(gs.best_estimator_)) # output: RandomForestRegressor(n_estimators=119, mse, auto) with 7-30_data.csv
 
 
 # test ensembles
